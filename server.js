@@ -20,6 +20,9 @@ app.use(express.static('public'))
 app.use(express.json());
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs')
+app.get('/', (req, res) => {
+    res.render('home');
+});
 app.use('/api/files', require('./routes/files'));
 app.use('/files', require('./routes/show'));
 app.use('/files/download', require('./routes/download'));
